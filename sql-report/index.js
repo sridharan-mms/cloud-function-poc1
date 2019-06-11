@@ -13,9 +13,6 @@ exports.write = async (req, res) => {
   try {
     let body = req.body
 
-    if (!body || body.PWD !== process.env.token) throw new Error('Forbidden')
-    if (!body.CHK || !body.CHK.CHECKING) throw new Error('Data schema invalid')
-
     let checkingPayload = body.CHK.CHECKING
 
     let checkingRequests = checkingPayload.map(entity => {
